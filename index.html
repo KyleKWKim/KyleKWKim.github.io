@@ -965,7 +965,9 @@
   <!-- Footer -->
   <footer>
     <p>© Kyungwon Kim · 🇰🇷</p>
-    <p class="clock" id="clock"></p>
+    <!-- <p class="clock" id="clock"></p> -->
+    <p class="clock" id="clockKST"></p>
+    <p class="clock" id="clockUTC"></p>
   </footer>
 
   <script>
@@ -1051,16 +1053,43 @@
     // Real-time clock
     function updateClock() {
       const now = new Date();
-      const options = { 
+    //   const options = { 
+    //     year: 'numeric', 
+    //     month: 'short', 
+    //     day: 'numeric',
+    //     hour: '2-digit', 
+    //     minute: '2-digit', 
+    //     second: '2-digit',
+    //     hour12: false 
+    //   };
+    //   document.getElementById('clock').textContent = now.toLocaleString('en-US', options);
+    // }
+  
+      // KST (한국 시간)
+      const kstOptions = { 
         year: 'numeric', 
         month: 'short', 
         day: 'numeric',
         hour: '2-digit', 
         minute: '2-digit', 
         second: '2-digit',
-        hour12: false 
+        hour12: false,
+        timeZone: 'Asia/Seoul'
       };
-      document.getElementById('clock').textContent = now.toLocaleString('en-US', options);
+      document.getElementById('clockKST').textContent = now.toLocaleString('en-US', kstOptions) + ' KST';
+      
+      // UTC
+      const utcOptions = { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: false,
+        timeZone: 'UTC'
+      };
+      document.getElementById('clockUTC').textContent = now.toLocaleString('en-US', utcOptions) + ' UTC';
     }
     updateClock();
     setInterval(updateClock, 1000);
