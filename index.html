@@ -691,9 +691,10 @@
       <a href="#" class="logo">Kyungwon Kim</a>
       <div class="nav-links">
         <a href="#news">News</a>
-        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#research">Research</a>
         <a href="#awards">Awards</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
         <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -708,9 +709,10 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#news" onclick="closeMenu()">News</a>
-    <a href="#research" onclick="closeMenu()">Research</a>
     <a href="#publications" onclick="closeMenu()">Publications</a>
+    <a href="#research" onclick="closeMenu()">Research</a>
     <a href="#awards" onclick="closeMenu()">Awards</a>
+    <a href="#education" onclick="closeMenu()">Education</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
   </div>
 
@@ -923,6 +925,29 @@
     </div>
   </section>
 
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="awards-grid">
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="award-content">
+          <h4>Ph.D. Candidate in Electrical and Electronic Engineering</h4>
+          <p>Yonsei University, Seoul, Korea</p>
+          <span class="award-year">Mar. 2019 — Present</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="award-content">
+          <h4>B.S. in Electrical and Electronic Engineering</h4>
+          <p>Yonsei University, Seoul, Korea</p>
+          <span class="award-year">Mar. 2012 — Feb. 2019</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CV Download -->
   <section>
     <div class="cv-section">
@@ -1092,6 +1117,7 @@
       };
       document.getElementById('clockUTC').textContent = now.toLocaleString('en-US', utcOptions) + ' UTC';
     }
+    
     updateClock();
     setInterval(updateClock, 1000);
     
