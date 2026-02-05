@@ -191,19 +191,6 @@
       position: relative;
     }
 
-    .hero-photo .photo-placeholder {
-      width: 280px;
-      height: 320px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-    }
-
     .hero-photo img {
       width: 280px;
       height: 320px;
@@ -290,6 +277,9 @@
       border: 1px solid var(--border);
       padding: 1.5rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
     }
 
     .research-card:hover {
@@ -308,6 +298,7 @@
     .research-card p {
       font-size: 0.95rem;
       color: var(--text-secondary);
+      flex-grow: 1;
     }
 
     .research-tag {
@@ -321,29 +312,28 @@
       letter-spacing: 0.02em;
     }
 
-    /* Research Logos */
+    /* Research Logos - 컬러, 자동 크기 조절 */
     .research-logos {
       display: flex;
-      gap: 0.75rem;
-      margin-top: 1rem;
+      gap: 1rem;
+      margin-top: auto;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
       align-items: center;
+      min-height: 45px;
     }
-    
+
     .research-logos img {
-      height: 24px;
-      max-width: 80px;
+      height: 28px;
       width: auto;
+      max-width: 90px;
       object-fit: contain;
-      opacity: 0.6;
-      filter: grayscale(100%);
-      transition: opacity 0.2s, filter 0.2s;
+      opacity: 0.85;
+      transition: opacity 0.2s;
     }
-    
+
     .research-logos img:hover {
       opacity: 1;
-      filter: grayscale(0%);
     }
 
     /* Publications */
@@ -562,7 +552,6 @@
         justify-self: center;
       }
 
-      .hero-photo .photo-placeholder,
       .hero-photo img {
         width: 200px;
         height: 240px;
@@ -661,10 +650,6 @@
         </div>
       </div>
       <div class="hero-photo">
-        <!-- Replace with your photo: <img src="photo.jpg" alt="Kyungwon Kim"> -->
-        <!-- <div class="photo-placeholder">
-          <span>Your Photo</span>
-        </div> -->
         <img src="photo.jpg" alt="Kyungwon Kim">
       </div>
     </div>
@@ -767,14 +752,26 @@
     <h2>Publications</h2>
     <div class="pub-list">
       <div class="pub-item">
-        <div class="pub-venue">MICCAI 2024 · FWCI 5.39</div>
+        <div class="pub-venue">CVPR 2026 · h5-index 450</div>
+        <h3 class="pub-title">MUST: Modality-Specific Representation-Aware Transformer for Diffusion-Enhanced Survival Prediction with Missing Modality</h3>
+        <p class="pub-authors">
+          <span class="me">Kyungwon Kim</span>, and Dosik Hwang
+        </p>
+        <div class="pub-links">
+          <a href="#"><i class="fas fa-link"></i> URL</a>
+          <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      
+      <div class="pub-item">
+        <div class="pub-venue">MICCAI 2024 · FWCI 5.09</div>
         <h3 class="pub-title">LLM-guided Multi-modal Multiple Instance Learning for 5-year Overall Survival Prediction of Lung Cancer</h3>
         <p class="pub-authors">
           <span class="me">Kyungwon Kim</span>, Yongmoon Lee, Doohyun Park, Taejoon Eo, Daemyung Youn, Hyesang Lee, and Dosik Hwang
         </p>
         <div class="pub-links">
-          <a href="https://link.springer.com/chapter/10.1007/978-3-031-72384-1_23?utm_source=getftr&utm_medium=getftr&utm_campaign=getftr_pilot&getft_integrator=scopus"><i class="fas fa-link"></i> URL</a>
-          <a href="https://github.com/KyleKWKim/LLM-guided-Multimodal-MIL"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-3-031-72384-1_23?utm_source=getftr&utm_medium=getftr&utm_campaign=getftr_pilot&getft_integrator=scopus" target="_blank"><i class="fas fa-link"></i> URL</a>
+          <a href="https://github.com/KyleKWKim/LLM-guided-Multimodal-MIL" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
       
@@ -785,7 +782,7 @@
           Yunsu Byeon, Hyeseong Kim, <span class="me">Kyungwon Kim</span>, Doohyun Park, Euijoon Choi, and Dosik Hwang
         </p>
         <div class="pub-links">
-          <a href="https://link.springer.com/chapter/10.1007/978-3-031-53241-2_1"><i class="fas fa-link"></i> URL</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-3-031-53241-2_1" target="_blank"><i class="fas fa-link"></i> URL</a>
         </div>
       </div>
       
@@ -796,7 +793,7 @@
           Hyeongyu Kim, <span class="me">Kyungwon Kim</span>, Kyungchul Lee, Taejoon Eo, Seungah Lee, and Dosik Hwang
         </p>
         <div class="pub-links">
-          <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0/PC119700/Deep-residual-network-with-data-consistency-for-subsampled-Fourier-ptychographic/10.1117/12.2609572.full"><i class="fas fa-link"></i> URL</a>
+          <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0/PC119700/Deep-residual-network-with-data-consistency-for-subsampled-Fourier-ptychographic/10.1117/12.2609572.full" target="_blank"><i class="fas fa-link"></i> URL</a>
         </div>
       </div>
       
@@ -807,7 +804,7 @@
           Sewon Kim, Hanbyol Jang, <span class="me">Kyungwon Kim</span>, Hyeon Gyu Kim, Young Han Lee, Sungjun Kim, and Dosik Hwang
         </p>
         <div class="pub-links">
-          <a href="https://archive.ismrm.org/2020/2663.html"><i class="fas fa-link"></i> URL</a>
+          <a href="https://archive.ismrm.org/2020/2663.html" target="_blank"><i class="fas fa-link"></i> URL</a>
         </div>
       </div>
     </div>
