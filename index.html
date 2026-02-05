@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyungwon Kim | Medical AI Researcher</title>
+  <meta name="description" content="Ph.D. Candidate at Yonsei University, specializing in multimodal medical AI and survival prediction">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #faf9f7;
+      --bg-secondary: #f0efed;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --text-muted: #888888;
+      --accent: #c23a3a;
+      --accent-light: #e8d4d4;
+      --border: #e0e0e0;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Crimson Pro', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --bg-card: #1f1f1f;
+      --text-primary: #f0f0f0;
+      --text-secondary: #b0b0b0;
+      --text-muted: #707070;
+      --accent: #e05555;
+      --accent-light: #3a2020;
+      --border: #333333;
+      --shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 18px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 0 2rem;
+      transition: background 0.3s ease;
+    }
+
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav .nav-links a {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      transition: color 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 140px 2rem 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    .hero-text .subtitle {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .hero-text .bio {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .hero-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero-photo {
+      position: relative;
+    }
+
+    .hero-photo .photo-placeholder {
+      width: 280px;
+      height: 320px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    .hero-photo img {
+      width: 280px;
+      height: 320px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    section h2::before {
+      content: '';
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent);
+    }
+
+    /* News Section */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .news-content {
+      color: var(--text-secondary);
+    }
+
+    .news-content strong {
+      color: var(--text-primary);
+    }
+
+    .news-content a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .news-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* Research Areas */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .research-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .research-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .research-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .research-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .research-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.2rem 0.5rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Publications */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .pub-item {
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.2s ease;
+    }
+
+    .pub-item:hover {
+      border-left-color: var(--accent);
+    }
+
+    .pub-venue {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .pub-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .pub-authors {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-authors .me {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .pub-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s ease;
+    }
+
+    .pub-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Awards */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .award-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .award-icon {
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+
+    .award-content h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .award-content p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .award-year {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* CV Download */
+    .cv-section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .cv-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-section p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .cv-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .contact-item p, .contact-item a {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .contact-item a {
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-photo {
+        order: -1;
+        justify-self: center;
+      }
+
+      .hero-photo .photo-placeholder,
+      .hero-photo img {
+        width: 200px;
+        height: 240px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.25rem;
+      }
+
+      nav .nav-links {
+        gap: 1rem;
+      }
+
+      nav .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav .nav-links a:not(:first-child):not(:last-child) {
+        display: none;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-text, .hero-photo {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .hero-photo {
+      animation-delay: 0.1s;
+      animation-fill-mode: both;
+    }
+
+    section {
+      animation: fadeInUp 0.5s ease-out;
+      animation-fill-mode: both;
+    }
+
+    #news { animation-delay: 0.1s; }
+    #research { animation-delay: 0.15s; }
+    #publications { animation-delay: 0.2s; }
+    #awards { animation-delay: 0.25s; }
+    #contact { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Kyungwon Kim</a>
+      <div class="nav-links">
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Kyungwon Kim</h1>
+        <p class="subtitle">Ph.D. Candidate · Medical AI Researcher</p>
+        <p class="bio">
+          I'm a Ph.D. candidate at <strong>Yonsei University</strong>, working in the Medical Artificial Intelligence Laboratory (MAI-Lab). 
+          My research focuses on <em>multimodal learning for cancer prognosis prediction</em>, combining CT, pathology, and genomic data to improve survival analysis under missing modality scenarios.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:yskgw93@yonsei.ac.kr"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://github.com/KyleKWKim" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+          <a href="https://mai-lab.net" target="_blank"><i class="fas fa-flask"></i> MAI-Lab</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- Replace with your photo: <img src="photo.jpg" alt="Kyungwon Kim"> -->
+        <div class="photo-placeholder">
+          <span>Your Photo</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- News Section -->
+  <section id="news">
+    <h2>News</h2>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">Oct 2024</span>
+        <p class="news-content">
+          <strong>Paper presented at MICCAI 2024</strong> in Marrakesh, Morocco — 
+          "LLM-guided Multi-modal Multiple Instance Learning for 5-year Overall Survival Prediction of Lung Cancer"
+        </p>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Sep 2024</span>
+        <p class="news-content">
+          Completed research collaboration with <strong>Mila × Probe Medical</strong> in Montreal on LLM-based clinical report generation from 3D CT
+        </p>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Oct 2023</span>
+        <p class="news-content">
+          <strong>3rd Place</strong> at MICCAI 2023 Challenge — SEG.A. Segmentation of the Aortic Vessel Tree
+        </p>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2022</span>
+        <p class="news-content">
+          Patent applied: "Method, Device and Recording Medium for Obtaining Parameter Data on an Object"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research">
+    <h2>Research</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <span class="research-tag">Medical AI</span>
+        <h3>Multi-modal Cancer Prognosis Prediction</h3>
+        <p>Survival prediction for cancer patients using CT images, pathological images (WSI), and genomic data under missing-modality settings.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-tag">Medical AI</span>
+        <h3>Clinical Report Generation</h3>
+        <p>LLM-based approaches for generating clinical reports including findings and impressions from 3D CT images.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-tag">Medical Imaging</span>
+        <h3>Segmentation & Classification</h3>
+        <p>Automatic detection of anatomical/pathological regions in radiological images and disease classification.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-tag">Medical Imaging</span>
+        <h3>Self-supervised X-ray Denoising</h3>
+        <p>Deep learning methods for denoising low-dose X-ray images without paired supervision.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-tag">Optics</span>
+        <h3>Fourier Ptychographic Microscopy</h3>
+        <p>Deep learning-based reconstruction of high-resolution optical images from multiple low-resolution acquisitions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-venue">MICCAI 2024 · FWCI 5.39</div>
+        <h3 class="pub-title">LLM-guided Multi-modal Multiple Instance Learning for 5-year Overall Survival Prediction of Lung Cancer</h3>
+        <p class="pub-authors">
+          <span class="me">Kyungwon Kim</span>, Yongmoon Lee, Doohyun Park, Taejoon Eo, Daemyung Youn, Hyesang Lee, and Dosik Hwang
+        </p>
+        <div class="pub-links">
+          <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="#"><i class="fas fa-code"></i> Code</a>
+        </div>
+      </div>
+      
+      <div class="pub-item">
+        <div class="pub-venue">MICCAI Challenge 2023</div>
+        <h3 class="pub-title">M3F: Multi-Field-of-View Feature Fusion Network for Aortic Vessel Tree Segmentation in CT Angiography</h3>
+        <p class="pub-authors">
+          Yunsu Byeon, Hyeseong Kim, <span class="me">Kyungwon Kim</span>, Doohyun Park, Euijoon Choi, and Dosik Hwang
+        </p>
+        <div class="pub-links">
+          <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+        </div>
+      </div>
+      
+      <div class="pub-item">
+        <div class="pub-venue">SPIE Photonics West 2022</div>
+        <h3 class="pub-title">Deep residual network with data consistency for subsampled Fourier Ptychographic Microscopy</h3>
+        <p class="pub-authors">
+          Hyeongyu Kim, <span class="me">Kyungwon Kim</span>, Kyungchul Lee, Taejoon Eo, Seungah Lee, and Dosik Hwang
+        </p>
+        <div class="pub-links">
+          <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+        </div>
+      </div>
+      
+      <div class="pub-item">
+        <div class="pub-venue">ISMRM & SMRT 2020</div>
+        <h3 class="pub-title">Are Two MR Images Enough to Generate the Third One Accurately? — Clinically Feasible Fat Suppression of Lumbar Spine MRI</h3>
+        <p class="pub-authors">
+          Sewon Kim, Hanbyol Jang, <span class="me">Kyungwon Kim</span>, Hyeon Gyu Kim, Young Han Lee, Sungjun Kim, and Dosik Hwang
+        </p>
+        <div class="pub-links">
+          <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section id="awards">
+    <h2>Honors & Awards</h2>
+    <div class="awards-grid">
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-flag"></i></div>
+        <div class="award-content">
+          <h4>DEFCON CTF World Finals</h4>
+          <p>5× Finalist (2011, 2013, 2014, 2017, 2018)</p>
+          <span class="award-year">Las Vegas, USA</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div class="award-content">
+          <h4>MICCAI 2023 SEG.A. Challenge</h4>
+          <p>3rd Place — Aortic Vessel Segmentation</p>
+          <span class="award-year">Vancouver, 2023</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-award"></i></div>
+        <div class="award-content">
+          <h4>Yonsei Medical Center Big Data Challenge</h4>
+          <p>Challenge Award</p>
+          <span class="award-year">Seoul, 2024</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-medal"></i></div>
+        <div class="award-content">
+          <h4>KISA HDCON</h4>
+          <p>Silver Prize (2013, 2017)</p>
+          <span class="award-year">Seoul, S.Korea</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-star"></i></div>
+        <div class="award-content">
+          <h4>CODEGATE World Final</h4>
+          <p>Problem Writer</p>
+          <span class="award-year">Seoul, 2016</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="award-content">
+          <h4>BK21 Plus Outstanding Student Fellowship</h4>
+          <p>Korea Research Foundation</p>
+          <span class="award-year">2019 — Present</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV Download -->
+  <section>
+    <div class="cv-section">
+      <h3>Curriculum Vitae</h3>
+      <p>Download my full CV for detailed information about my research, publications, and experience.</p>
+      <a href="assets/CV.pdf" class="cv-button" download>
+        <i class="fas fa-download"></i> Download CV (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:yskgw93@yonsei.ac.kr">yskgw93@yonsei.ac.kr</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <h4>Office</h4>
+          <p>C516, The 3rd Engineering Building<br>Yonsei University, 50 Yonsei-Ro<br>Seodaemun-Gu, Seoul 03722, Korea</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
+        <div>
+          <h4>GitHub</h4>
+          <a href="https://github.com/KyleKWKim" target="_blank">github.com/KyleKWKim</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Kyungwon Kim · Built with ♥</p>
+  </footer>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.querySelector('.theme-toggle i');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Load saved theme
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const icon = document.querySelector('.theme-toggle i');
+      
+      if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    })();
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
