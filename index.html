@@ -1053,7 +1053,8 @@
     // Real-time clock
     function updateClock() {
       const now = new Date();
-      
+
+      // 접속 위치에 따른 타임존으로 자동 적용
       const options = { 
         year: 'numeric', 
         month: 'short', 
@@ -1064,7 +1065,6 @@
         hour12: false 
       };
       document.getElementById('clock').textContent = now.toLocaleString('en-US', options);
-    }
   
       // KST (한국 시간)
       const kstOptions = { 
