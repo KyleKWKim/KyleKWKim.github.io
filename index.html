@@ -128,6 +128,61 @@
       color: var(--accent);
     }
 
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 1.25rem;
+      transition: color 0.2s ease;
+    }
+
+    .menu-toggle:hover {
+      color: var(--accent);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+
     /* Hero Section */
     .hero {
       padding: 140px 2rem 80px;
@@ -312,7 +367,7 @@
       letter-spacing: 0.02em;
     }
 
-    /* Research Logos - 컬러, 자동 크기 조절 */
+    /* Research Logos */
     .research-logos {
       display: flex;
       gap: 1rem;
@@ -573,11 +628,18 @@
         grid-template-columns: 1fr;
         gap: 0.5rem;
       }
-    }
 
-    @media (max-width: 480px) {
-      nav .nav-links a:not(:first-child):not(:last-child) {
+      /* Show hamburger, hide nav links */
+      .menu-toggle {
+        display: block;
+      }
+
+      nav .nav-links a {
         display: none;
+      }
+
+      nav .nav-links .theme-toggle {
+        display: block;
       }
     }
 
@@ -625,12 +687,24 @@
         <a href="#publications">Publications</a>
         <a href="#awards">Awards</a>
         <a href="#contact">Contact</a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#news" onclick="closeMenu()">News</a>
+    <a href="#research" onclick="closeMenu()">Research</a>
+    <a href="#publications" onclick="closeMenu()">Publications</a>
+    <a href="#awards" onclick="closeMenu()">Awards</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
 
   <!-- Hero Section -->
   <header class="hero">
@@ -640,7 +714,7 @@
         <p class="subtitle">Ph.D. Candidate · Medical AI Researcher</p>
         <p class="bio">
           I'm a Ph.D. candidate at <strong>Yonsei University</strong>, working in the Medical Artificial Intelligence Laboratory (MAI-Lab). 
-          My research focuses on multimodal learning with large-scale medical imaging data, including 3D CT/MRI and whole slide images (WSI). I develop deep learning methods for cancer-related tasks such as survival prediction, segmentation, and classification.
+          My research focuses on multimodal learning with large-scale medical imaging data, including 3D CT and whole slide images (WSI). I develop deep learning methods for cancer-related tasks such as survival prediction, segmentation, and classification.
         </p>
         <div class="hero-links">
           <a href="mailto:gmkgw93@gmail.com"><i class="fas fa-envelope"></i> Email</a>
@@ -886,6 +960,41 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.querySelector('.menu-toggle i');
+      
+      menu.classList.toggle('active');
+      
+      if (menu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.querySelector('.menu-toggle i');
+      
+      menu.classList.remove('active');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
     // Theme toggle
     function toggleTheme() {
       const body = document.body;
