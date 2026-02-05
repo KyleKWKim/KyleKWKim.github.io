@@ -321,6 +321,29 @@
       letter-spacing: 0.02em;
     }
 
+    /* Research Logos */
+    .research-logos {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      align-items: center;
+    }
+    
+    .research-logos img {
+      height: 22px;
+      width: auto;
+      opacity: 0.6;
+      filter: grayscale(100%);
+      transition: opacity 0.2s, filter 0.2s;
+    }
+    
+    .research-logos img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
     /* Publications */
     .pub-list {
       display: flex;
