@@ -2,7 +2,8 @@
 
 Personal academic homepage of **Kyungwon Kim**
 
-Ph.D. Candidate, Department of Electrical and Electronic Engineering, Yonsei University
+Researcher, Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center (SMC)  
+Ph.D., Electrical and Electronic Engineering, Yonsei University
 
 ## Links
 
@@ -13,4 +14,4 @@ Ph.D. Candidate, Department of Electrical and Electronic Engineering, Yonsei Uni
 
 ## Research Interests
 
-Medical AI, Multimodal Learning, Cancer Survival Prediction, Medical Image Segmentation
+Medical AI, Multimodal Learning, Computer Vision, Surgical Robotics, Physical AI, World Models, Embodied Intelligence
