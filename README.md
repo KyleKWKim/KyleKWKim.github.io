@@ -2,7 +2,7 @@
 
 Personal academic homepage of **Kyungwon Kim**
 
-Researcher, Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center (SMC)  
+Research Scientist, Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center (SMC)  
 Ph.D., Electrical and Electronic Engineering, Yonsei University
 
 ## Links
