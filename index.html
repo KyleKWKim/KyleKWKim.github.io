@@ -14,8 +14,8 @@
   </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kyungwon Kim, Ph.D. | Medical AI &amp; Surgical Robotics Researcher</title>
-  <meta name="description" content="Researcher at the Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center, working on medical AI, multimodal learning, surgical robotics, Physical AI, and world models">
+  <title>Kyungwon Kim, Ph.D. | Medical AI &amp; Surgical Robotics Research Scientist</title>
+  <meta name="description" content="Research Scientist at the Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center, working on medical AI, multimodal learning, surgical robotics, Physical AI, and world models">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -596,6 +596,13 @@
       margin-bottom: 1.5rem;
     }
 
+    .cv-button-outline {
+      background: transparent !important;
+      color: var(--accent) !important;
+      box-shadow: inset 0 0 0 1px var(--accent);
+      margin-left: 0.5rem;
+    }
+
     .cv-button {
       display: inline-flex;
       align-items: center;
@@ -852,6 +859,7 @@
         <a href="#awards">Awards</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
+        <a href="cv.html" target="_blank" rel="noopener">CV</a>
         <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
@@ -871,6 +879,7 @@
     <a href="#awards" onclick="closeMenu()">Awards</a>
     <a href="#education" onclick="closeMenu()">Education</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="cv.html" target="_blank" rel="noopener" onclick="closeMenu()">CV</a>
   </div>
 
   <!-- Hero Section -->
@@ -878,11 +887,11 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1>Kyungwon Kim, Ph.D.</h1>
-        <p class="subtitle">Researcher · Medical AI &amp; Surgical Robotics</p>
+        <p class="subtitle">Research Scientist · Medical AI &amp; Surgical Robotics</p>
         <p class="bio">
           I received my Ph.D. in Electrical and Electronic Engineering from <strong>Yonsei University</strong> (MAI-Lab), where I worked on multimodal learning for cancer prognosis using medical imaging, genomics, and clinical data.
           <br><br>
-          I am currently a researcher at the <strong>Clinical Robotics and Embodied AI Research (CREAI) Center</strong> at <strong>Samsung Medical Center (SMC)</strong>. My research is expanding toward surgical robotics, Physical AI, and world models, with a focus on developing intelligent systems that can perceive, reason about, and interact with complex clinical environments.
+          I am currently a research scientist at the <strong>Clinical Robotics and Embodied AI Research (CREAI) Center</strong> at <strong>Samsung Medical Center (SMC)</strong>. My research is expanding toward surgical robotics, Physical AI, and world models, with a focus on developing intelligent systems that can perceive, reason about, and interact with complex clinical environments.
           <br><br>
           More broadly, my research interests span medical artificial intelligence, multimodal learning, computer vision, surgical robotics, and embodied intelligence.
           <br><br>
@@ -909,7 +918,7 @@
       <div class="news-item">
         <span class="news-date">Sep 2026</span>
         <p class="news-content">
-          Joined the <strong>Clinical Robotics and Embodied AI Research (CREAI) Center</strong> at <strong>Samsung Medical Center</strong> as a Senior Researcher
+          Joined the <strong>Clinical Robotics and Embodied AI Research (CREAI) Center</strong> at <strong>Samsung Medical Center</strong> as a Senior Research Scientist
         </p>
       </div>
       <div class="news-item">
@@ -957,13 +966,13 @@
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-date">Sep. 2026 — Present</div>
-        <div class="timeline-title">Senior Researcher</div>
+        <div class="timeline-title">Senior Research Scientist</div>
         <div class="timeline-subtitle">Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center, Seoul, Korea</div>
         <div class="timeline-desc">Developing autonomous surgical robots with Vision-Language-Action (VLA) models and world models.</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-date">Jul. 2026 — Sep. 2026</div>
-        <div class="timeline-title">AI Researcher (Manager)</div>
+        <div class="timeline-title">Senior Research Engineer</div>
         <div class="timeline-subtitle">AI Team, Imaging Group, FLEXLAB, Genoray, Seoul, Korea</div>
         <div class="timeline-desc">Developed AI-based methods to enhance X-ray image quality.</div>
       </div>
@@ -1172,9 +1181,12 @@
   <section>
     <div class="cv-section">
       <h3>Curriculum Vitae</h3>
-      <p>Download my full CV for detailed information about my research, publications, and experience.</p>
-      <a href="assets/CV.pdf" class="cv-button" download>
-        <i class="fas fa-download"></i> Download CV (PDF)
+      <p>View or download my full CV for detailed information about my research, publications, and experience.</p>
+      <a href="cv.html" class="cv-button" target="_blank" rel="noopener">
+        <i class="fas fa-file-lines"></i> View CV
+      </a>
+      <a href="assets/CV.pdf" class="cv-button cv-button-outline" download="Kyungwon_Kim_CV.pdf">
+        <i class="fas fa-download"></i> Download PDF
       </a>
     </div>
   </section>
