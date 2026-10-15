@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0TS4153L0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q0TS4153L0');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV | Kyungwon Kim, Ph.D.</title>
+  <meta name="description" content="Curriculum Vitae of Kyungwon Kim, Ph.D. — Senior Research Scientist at the Clinical Robotics and Embodied AI Research (CREAI) Center, Samsung Medical Center">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!--
+    ============================================================
+    HOW TO UPDATE THIS CV
+    - Edit the content below directly on GitHub and commit.
+    - A GitHub Action (.github/workflows/cv-pdf.yml) automatically
+      re-renders assets/CV.pdf from this page after each commit.
+    - To add an entry, copy an existing <div class="entry"> block.
+    ============================================================
+  -->
+
+  <style>
+    :root {
+      --bg-primary: #faf9f7;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --text-muted: #888888;
+      --accent: #c23a3a;
+      --border: #e0e0e0;
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Crimson Pro', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f0f0f;
+      --bg-card: #1f1f1f;
+      --text-primary: #f0f0f0;
+      --text-secondary: #b0b0b0;
+      --text-muted: #707070;
+      --accent: #e05555;
+      --border: #333333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.55;
+      font-size: 17px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border); }
+    a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Toolbar (screen only) */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+    }
+    .toolbar-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .toolbar a, .toolbar button {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .toolbar a:hover, .toolbar button:hover { color: var(--accent); }
+    .toolbar .actions { display: flex; align-items: center; gap: 1.25rem; }
+    .toolbar .download {
+      color: #fff;
+      background: var(--accent);
+      padding: 0.45rem 0.9rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .toolbar .download:hover { color: #fff; opacity: 0.9; }
+
+    /* Page */
+    .page {
+      max-width: 860px;
+      margin: 2.5rem auto 4rem;
+      padding: 3rem 3.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    header.cv-header {
+      border-bottom: 2px solid var(--text-primary);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .cv-header h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 2.1rem;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .cv-header .role {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.25rem;
+      margin-top: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+    .contact i { color: var(--accent); margin-right: 0.3rem; }
+    .contact a { border-bottom: none; }
+
+    section { margin-top: 1.5rem; }
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary p + p { margin-top: 0.5rem; }
+
+    .entry { margin-bottom: 0.85rem; break-inside: avoid; page-break-inside: avoid; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .entry-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+    .entry-right {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .entry-sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .entry ul { margin: 0.2rem 0 0 1.1rem; color: var(--text-secondary); font-size: 0.95rem; }
+    .entry li { margin-top: 0.1rem; }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-style: normal;
+      margin-left: 0.35rem;
+    }
+
+    .pub-authors { color: var(--text-secondary); font-size: 0.95rem; }
+    .pub-authors strong { color: var(--text-primary); font-weight: 600; }
+    .pub-links { font-family: var(--font-mono); font-size: 0.66rem; margin-top: 0.15rem; }
+    .pub-links a { margin-right: 0.8rem; color: var(--text-muted); }
+
+    .row-list .entry { display: grid; grid-template-columns: 3.2rem 1fr auto; gap: 0.75rem; align-items: baseline; }
+    .row-list .year { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); }
+
+    .updated {
+      margin-top: 2rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 700px) {
+      body { font-size: 16px; }
+      .toolbar-inner { padding: 0 1rem; }
+      .toolbar .label-long { display: none; }
+      .page { margin: 0; padding: 1.75rem 1rem 2.5rem; border: none; }
+      .entry-head, .entry-sub { flex-direction: column; gap: 0.1rem; }
+      .entry-right { text-align: left; }
+      .row-list .entry { grid-template-columns: 3rem 1fr; }
+      .row-list .entry .entry-right { grid-column: 2; }
+    }
+
+    /* Print / PDF */
+    @page { size: A4; margin: 14mm 15mm 14mm 15mm; }
+    @media print {
+      :root, [data-theme="dark"] {
+        --bg-primary: #ffffff;
+        --bg-card: #ffffff;
+        --text-primary: #1a1a1a;
+        --text-secondary: #444444;
+        --text-muted: #777777;
+        --accent: #b02e2e;
+        --border: #dddddd;
+      }
+      html { font-size: 13.5px; }
+      body { font-size: 10pt; line-height: 1.45; background: #fff; }
+      .entry { margin-bottom: 0.65rem; }
+      .updated span:first-child { visibility: hidden; }
+      .toolbar { display: none; }
+      .page { margin: 0; padding: 0; border: none; max-width: none; }
+      a { border-bottom: none; }
+      h2 { break-after: avoid; page-break-after: avoid; }
+      section { margin-top: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <a href="./"><i class="fas fa-arrow-left"></i> <span>Home</span></a>
+      <div class="actions">
+        <button onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <a href="assets/CV.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> <span class="label-long">Open PDF</span></a>
+        <a class="download" href="assets/CV.pdf" download="Kyungwon_Kim_CV.pdf"><i class="fas fa-download"></i> Download PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <header class="cv-header">
+      <h1>Kyungwon Kim, Ph.D.</h1>
+      <div class="role">Senior Research Scientist · Medical AI &amp; Surgical Robotics</div>
+      <div class="contact">
+        <span><i class="fas fa-envelope"></i><a href="mailto:gmkgw93@gmail.com">gmkgw93@gmail.com</a></span>
+        <span><i class="fas fa-globe"></i><a href="https://kylekwkim.github.io">kylekwkim.github.io</a></span>
+        <span><i class="fab fa-github"></i><a href="https://github.com/KyleKWKim">KyleKWKim</a></span>
+        <span><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=k55Y4Z4AAAAJ&amp;hl=en">Google Scholar</a></span>
+        <span><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/kyungwon-kim-61b018196">LinkedIn</a></span>
+      </div>
+    </header>
+
+    <!-- ===================== SUMMARY ===================== -->
+    <section class="summary">
+      <h2>Summary</h2>
+      <p>I received my Ph.D. in Electrical and Electronic Engineering from Yonsei University, where I worked on multimodal learning for cancer prognosis using medical imaging, genomics, and clinical data.</p>
+      <p>I am currently a research scientist at the Clinical Robotics and Embodied AI Research (CREAI) Center at Samsung Medical Center (SMC). My research is expanding toward surgical robotics, Physical AI, and world models, with a focus on developing intelligent systems that can perceive, reason about, and interact with complex clinical environments.</p>
+      <p>More broadly, my research interests span medical artificial intelligence, multimodal learning, computer vision, surgical robotics, and embodied intelligence.</p>
+    </section>
+
+    <!-- ===================== PROFESSIONAL EXPERIENCE ===================== -->
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Samsung Medical Center — Clinical Robotics and Embodied AI Research (CREAI) Center</div>
+          <div class="entry-right">Seoul, Korea</div>
+        </div>
+        <div class="entry-sub"><span>Senior Research Scientist</span><span class="entry-right">Sep. 2026 – Present</span></div>
+        <ul><li>Developing autonomous surgical robots; Vision-Language-Action (VLA) models; world models.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Genoray — AI Team, Imaging Group, FLEXLAB</div>
+          <div class="entry-right">Seoul, Korea</div>
+        </div>
+        <div class="entry-sub"><span>Senior Research Engineer</span><span class="entry-right">Jul. 2026 – Sep. 2026</span></div>
+        <ul><li>Developed AI-based methods to enhance X-ray image quality.</li></ul>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Ph.D. in Electrical and Electronic Engineering</div>
+          <div class="entry-right">Seoul, Korea</div>
+        </div>
+        <div class="entry-sub"><span>Yonsei University (Advisor: Prof. Dosik Hwang, MAI-Lab)</span><span class="entry-right">Mar. 2019 – Aug. 2026</span></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">B.S. in Electrical and Electronic Engineering</div>
+          <div class="entry-right">Seoul, Korea</div>
+        </div>
+        <div class="entry-sub"><span>Yonsei University</span><span class="entry-right">Mar. 2012 – Feb. 2019</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== RESEARCH AREAS ===================== -->
+    <section>
+      <h2>Research Areas</h2>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Multi-modal Cancer Prognosis Prediction</div><div class="entry-right"><span class="tag">Medical</span></div></div>
+        <ul>
+          <li>Survival prediction for lung cancer patients using CT images, pathological images, and clinical data.</li>
+          <li>Prognosis prediction for multiple cancer types using pathological images and genomic data under missing-modality settings.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Segmentation and Classification in X-ray and CT Images</div><div class="entry-right"><span class="tag">Medical</span></div></div>
+        <ul><li>Methods for automatic detection of anatomical or pathological regions in radiological images and disease classification based on image features.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Self-supervised Denoising of Low-dose X-ray Images</div><div class="entry-right"><span class="tag">Medical</span></div></div>
+        <ul><li>Deep learning–based methods for denoising low-dose X-ray images to approximate high-dose image quality without paired supervision.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Clinical Report Generation from 3D CT</div><div class="entry-right"><span class="tag">Medical</span></div></div>
+        <ul><li>Large Language Model (LLM)–based approaches for generating clinical reports, including findings and impressions, from 3D CT images.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Deep-Learning-based Fourier Ptychographic Microscopy (FPM)</div><div class="entry-right"><span class="tag">Optics</span></div></div>
+        <ul><li>Techniques for reconstructing high-resolution optical images with a large field of view from multiple low-resolution images acquired under physical constraints.</li></ul>
+      </div>
+    </section>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section>
+      <h2>Publications</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">MUST: Modality-Specific Representation-Aware Transformer for Diffusion-Enhanced Survival Prediction with Missing Modality</div>
+          <div class="entry-right">CVPR 2026</div>
+        </div>
+        <div class="entry-sub"><span class="pub-authors"><strong>Kyungwon Kim</strong>, and Dosik Hwang</span><span class="entry-right">Jun. 2026, Denver, CO, USA</span></div>
+        <div class="pub-links">h5-index 450 · <a href="https://arxiv.org/abs/2603.26071">arXiv</a><a href="https://github.com/KyleKWKim/MUST">Code</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">LLM-guided Multi-modal Multiple Instance Learning for 5-year Overall Survival Prediction of Lung Cancer</div>
+          <div class="entry-right">MICCAI 2024</div>
+        </div>
+        <div class="entry-sub"><span class="pub-authors"><strong>Kyungwon Kim</strong>, Yongmoon Lee, Doohyun Park, Taejoon Eo, Daemyung Youn, Hyesang Lee, and Dosik Hwang</span><span class="entry-right">Oct. 2024, Marrakesh, Morocco</span></div>
+        <div class="pub-links">FWCI 5.09 · <a href="https://link.springer.com/chapter/10.1007/978-3-031-72384-1_23">Paper</a><a href="https://github.com/KyleKWKim/LLM-guided-Multimodal-MIL">Code</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">M3F: Multi-Field-of-View Feature Fusion Network for Aortic Vessel Tree Segmentation in CT Angiography</div>
+          <div class="entry-right">MICCAI 2023</div>
+        </div>
+        <div class="entry-sub"><span class="pub-authors">Yunsu Byeon, Hyeseong Kim, <strong>Kyungwon Kim</strong>, Doohyun Park, Euijoon Choi, and Dosik Hwang</span><span class="entry-right">Oct. 2023, Vancouver, Canada</span></div>
+        <div class="pub-links">MICCAI Challenge on Segmentation of the Aorta · <a href="https://link.springer.com/chapter/10.1007/978-3-031-53241-2_1">Paper</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Deep residual network with data consistency for subsampled Fourier Ptychographic Microscopy</div>
+          <div class="entry-right">SPIE Photonics West</div>
+        </div>
+        <div class="entry-sub"><span class="pub-authors">Hyeongyu Kim, <strong>Kyungwon Kim</strong>, Kyungchul Lee, Taejoon Eo, Seungah Lee, and Dosik Hwang</span><span class="entry-right">Jan. 2022, San Francisco, USA</span></div>
+        <div class="pub-links"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0/PC119700/Deep-residual-network-with-data-consistency-for-subsampled-Fourier-ptychographic/10.1117/12.2609572.full">Paper</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Are Two MR Images Enough to Generate the Third One Accurately? – Clinically Feasible Fat Suppression of Lumbar Spine MRI from T1w and T2w Images Only</div>
+          <div class="entry-right">ISMRM &amp; SMRT</div>
+        </div>
+        <div class="entry-sub"><span class="pub-authors">Sewon Kim, Hanbyol Jang, <strong>Kyungwon Kim</strong>, Hyeon Gyu Kim, Young Han Lee, Sungjun Kim, and Dosik Hwang</span><span class="entry-right">Aug. 2020, Virtual</span></div>
+        <div class="pub-links"><a href="https://archive.ismrm.org/2020/2663.html">Abstract</a></div>
+      </div>
+    </section>
+
+    <!-- ===================== PATENTS ===================== -->
+    <section class="row-list">
+      <h2>Patents</h2>
+      <div class="entry">
+        <span class="year">2026</span>
+        <span>Method and Apparatus for Multimodal Data Analysis Supporting Missing Modalities Using Algebraic Representation Decomposition and Diffusion-Based Reconstruction, Application, KR 10-2026-0075495</span>
+        <span class="entry-right">Korea</span>
+      </div>
+      <div class="entry">
+        <span class="year">2022</span>
+        <span>Method, Device and Recording Medium for Obtaining Parameter Data on an Object, Application, KR 10-2022-0039082</span>
+        <span class="entry-right">Korea</span>
+      </div>
+    </section>
+
+    <!-- ===================== RESEARCH EXPERIENCE ===================== -->
+    <section>
+      <h2>Research Experience</h2>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Segmentation of Oral Cancer and Lymph Node Metastasis from Head CT</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Finance All Solutions Co. · Project Manager</span><span class="entry-right">Nov. 2025 – Aug. 2026</span></div>
+        <ul><li>Developing deep learning–based methods to segment primary oral cancer lesions and metastatic lymph nodes from head CT scans collected from multiple institutions.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Detection and Segmentation of Osteomyelitis of the Jaw from 3D Dental CT</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Finance All Solutions Co. · Project Manager</span><span class="entry-right">Jul. 2024 – Jun. 2025</span></div>
+        <ul><li>Classifying the presence of osteomyelitis and identifying its precise location using 3D oral CT scans collected from six institutions.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Landmark Detection in Craniofacial 3D CT Data of Congenital Anomalies</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Finance All Solutions Co. · Project Manager</span><span class="entry-right">Jul. 2024 – Jun. 2025</span></div>
+        <ul><li>Detection of 45 landmarks in 3D craniofacial CT data for identifying congenital anomalies.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Report Generation from 3D CT using LLM</div><div class="entry-right">Montréal, Canada</div></div>
+        <div class="entry-sub"><span>Mila × Probe Medical</span><span class="entry-right">Jun. 2024 – Sep. 2024</span></div>
+        <ul>
+          <li>Participated in the ‘Seoul AI Hub × Mila Partnership’ as a researcher affiliated with Probe Medical.</li>
+          <li>Development of a clinical report generating LLM from 3D CT.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Prognosis Prediction of Lung Cancer via Multi-modality</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Yonsei University × Probe Medical</span><span class="entry-right">Sep. 2023 – Oct. 2024</span></div>
+        <ul>
+          <li>Government-funded AI Dataset Construction Project (NIA).</li>
+          <li>Development of a 5-year overall survival prediction model using 3D CT, pathological images, and clinical data.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Deep-learning-based Fourier Ptychographic Microscopy</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Yonsei University</span><span class="entry-right">Sep. 2020 – Jan. 2022</span></div>
+        <ul><li>Collaboration with the Optical Imaging Systems Laboratory (OISL), Yonsei University.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Denoising in X-ray Images</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Rayence Inc.</span><span class="entry-right">Jun. 2021 – Dec. 2022</span></div>
+        <ul><li>Development of a deep learning model that denoises and enhances the quality of low-dose X-ray images, helping reduce patients’ X-ray exposure.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Disease Classification and Segmentation for Pediatric Chest X-ray</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Finance All Solutions Co.</span><span class="entry-right">Jul. 2021 – Dec. 2021</span></div>
+        <ul><li>Development of a deep learning model that classifies specific diseases and localizes lesions in pediatric chest X-ray images; establishment of a pediatric chest X-ray dataset.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Automatic Bone Segmentation in Cervical/Thoracic/Lumbar Spine Images</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Rayence Inc.</span><span class="entry-right">Sep. 2019 – Sep. 2020</span></div>
+        <ul><li>Development of an algorithm that automatically finds the spine in C/T/L spine X-ray images and calculates spinal curvature.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Object Area Detection in X-ray Images</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Rayence Inc.</span><span class="entry-right">Sep. 2019 – Mar. 2020</span></div>
+        <ul>
+          <li>Development of a deep learning model that automatically extracts only the object area, excluding the background, from medical X-ray images.</li>
+          <li>Deployed in a commercial product.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Navigation Implant</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Osstem Implant Co.</span><span class="entry-right">Jan. 2019 – Jun. 2020</span></div>
+        <ul><li>Development of an algorithm to find the optimal implant location using tooth scan data consisting of 3D STL files.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Collimator Area Detection in X-ray Images</div><div class="entry-right">Seoul, Korea</div></div>
+        <div class="entry-sub"><span>Rayence Inc.</span><span class="entry-right">Sep. 2018 – Mar. 2019</span></div>
+        <ul>
+          <li>Developed an algorithm that automatically removes the collimator area, which is unnecessary information in X-ray images.</li>
+          <li>Deployed in a commercial product.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== TEACHING EXPERIENCE ===================== -->
+    <section>
+      <h2>Teaching Experience</h2>
+      <p class="pub-authors" style="margin-bottom:0.6rem;">Teaching Assistant for Prof. Dosik Hwang, Department of Electrical and Electronic Engineering, Yonsei University</p>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Advanced Topics in Biomedical Engineering <span class="tag">Delivered lectures</span></div><div class="entry-right">Mar. 2026 – Jun. 2026</div></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Deep Learning Lab <span class="tag">Delivered lectures</span></div><div class="entry-right">Mar. 2022 – Jun. 2022</div></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Introductory Digital Labs</div><div class="entry-right">Sep. 2021 – Dec. 2021</div></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Biomedical Engineering Experiments <span class="tag">Delivered lectures</span></div><div class="entry-right">Sep. 2020 – Dec. 2020</div></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Digital Signal Processing</div><div class="entry-right">Mar. 2020 – Jun. 2020</div></div>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><div class="entry-title">Biomedical Engineering Experiments <span class="tag">Delivered lectures</span></div><div class="entry-right">Sep. 2019 – Dec. 2019</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== AWARDS ===================== -->
+    <section class="row-list">
+      <h2>Awards</h2>
+      <div class="entry">
+        <span class="year">2024</span>
+        <span>Challenge Award, 2024 Yonsei Medical Center Big Data Challenge</span>
+        <span class="entry-right">Seoul, Korea</span>
+      </div>
+      <div class="entry">
+        <span class="year">2023</span>
+        <span>3rd Place, MICCAI 2023 Grand Challenge SEG.A. — Segmentation of the Aortic Vessel Tree</span>
+        <span class="entry-right">Vancouver, Canada</span>
+      </div>
+    </section>
+
+    <div class="updated">
+      <span>Kyungwon Kim · Curriculum Vitae</span>
+      <span id="updated"></span>
+    </div>
+  </main>
+
+  <script>
+    // "Last updated" from the file's modification time (set on each deploy / PDF build)
+    (function () {
+      var d = new Date(document.lastModified);
+      if (!isNaN(d)) {
+        document.getElementById('updated').textContent =
+          'Last updated: ' + d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+    })();
+
+    function toggleTheme() {
+      var b = document.body, i = document.querySelector('.toolbar button i');
+      var dark = b.getAttribute('data-theme') === 'dark';
+      if (dark) { b.removeAttribute('data-theme'); i.className = 'fas fa-moon'; }
+      else { b.setAttribute('data-theme', 'dark'); i.className = 'fas fa-sun'; }
+      try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+    }
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        document.querySelector('.toolbar button i').className = 'fas fa-sun';
+      }
+    })();
+  </script>
+</body>
+</html>
